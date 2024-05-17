@@ -2,6 +2,11 @@
     {
         "title": "TAREA 1",
         "description": "esta es la tarea 1",
+        "completed": true
+    },
+    {
+        "title": "ERSES",
+        "description": "esrser",
         "completed": false
     }
 ]

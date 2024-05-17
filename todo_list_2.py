@@ -104,13 +104,13 @@ def main():
             print("Estas son todas tus tareas: ")
             task_manager.show_tasks()
         elif option == 4:
-            index = int(input("Ingresa el nº de la tarea que quieres COMPLETAR: "))
-            task_manager.mark_task_as_completed(index)
+                index = int(input("Ingresa el nº de la tarea que quieres COMPLETAR: "))
+                task_manager.mark_task_as_completed(index)
         elif option == 5:
-            print("Has salido de la aplicación")
-            break
+                print("Has salido de la aplicación")
+                break
         else:
-            print("Opción no válida. Intentalo de nuevo.")
+                print("Opción no válida. Intentalo de nuevo.")
 
 if __name__ == "__main__":
     main()
