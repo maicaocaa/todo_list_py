@@ -1,6 +1,7 @@
 [
     {
-        "task": "tareanueva 1",
+        "title": "TAREA 1",
+        "description": "esta es la tarea 1",
         "completed": false
     }
 ]
