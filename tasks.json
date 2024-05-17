@@ -1,12 +1,22 @@
 [
     {
-        "title": "TAREA 1",
-        "description": "esta es la tarea 1",
-        "completed": true
+        "title": "HACER TEST",
+        "description": "finalizar todos los test",
+        "completed": false
     },
     {
-        "title": "ERSES",
-        "description": "esrser",
+        "title": "LEER TEMARIO",
+        "description": "leer y compeltar el temario del curso",
         "completed": false
+    },
+    {
+        "title": "HACER TODO LIST",
+        "description": "realizar un programa en python para que gestione tareas",
+        "completed": false
+    },
+    {
+        "title": "COMPLETAR TAREAS",
+        "description": "el programa debe completar tareas",
+        "completed": true
     }
 ]
