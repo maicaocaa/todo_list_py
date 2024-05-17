@@ -1,9 +1,11 @@
-import json
+import json         # importa modulo jszon, permite trabajar con datos en formato JSON.
 # si el archivo task no existe, se cra un nuevo archivo task
 # Esta función carga las tareas desde un archivo JSON
 
 """ ------------------------
-Creados de objeto tarea Task
+Crea clase Task, para la creacion de tareas
+__init__ inicializa las tareas nuevas como false
+se define el metodo para marcar como completado que cambia la porpiedad completed a True
 ------------------------"""   
 
 class Task:
@@ -16,7 +18,15 @@ class Task:
         self.completed=True
 
 """ ------------------------
-Gestor de Tareas
+Creamos clase para la gestion de tareas
+El constructor __init__ elige el archivo llamado tasks.json
+
+El metodo load_tasks intenta cargar el archivo tasks.json y si no existe entra en la excepcion  para crear un nuevo archivo
+Si existe lo abre en modo lectura "r" y lo guarda en file
+Luego los valores de la variable file los guarda en  task_data
+Esto se hace asi, en varios pasos en vez de todo en un paso 
+para que cada línea de codigo tenga olo una finalidad y sea más legible
+Task_data será una lista de diccionarios y cada tarea un diccionario.
 ------------------------"""   
 
 class TaskManager:
@@ -37,7 +47,14 @@ class TaskManager:
             else:
                 print("Se ha cerrado el programa")
                 exit()
-    
+    """
+    save_tasks Este método guarda las tareas actuales. abre el archivo json en modo escritura (w) 
+    y añade con el metodo dump los valores introducidos.
+
+    add_tasks, necesita un titulo y una descripcion
+    crea una nueva tarea llamando a al clase Task y genera un objeto nuevo
+    luego llama al metodo save_tasks que lo guarda en el json   
+    """
     def save_tasks(self):
         with open (self.file_name, "w") as file:
             json.dump([{"title": task.title, "description": task.description, "completed": task.completed} for task in self.tasks], file, indent=4)
@@ -46,6 +63,24 @@ class TaskManager:
         new_task=Task(title.upper(), description)
         self.tasks.append(new_task)
         self.save_tasks()
+
+        """ ------------------------
+        delete_tasks , con el uso de "del" se borra la tarea indicada desde el pront 
+        y se le resta 1 para que coincida con el index real. luego se llama al metodo save_tasks
+
+        show_tasks, revisa si hay tareas, valorando el indice es menos o ingua a la longitud de tasks
+        luego itera las tareas guardadas en self.tasks (self.tasks=self.load_tasks())
+        realiza n for i para iterar una por una  y valora si esta completada o no. 
+        Empieza en el valor 1 y lo imprime
+        Si no hay tareas, no entra en la condicion y salta al else 
+        devuelve el mensaje de "no hay tareas"
+
+        mark_task_as_completed valora el index si existe, osea, que no sea menos a 0  ç
+        y que sea igual o menor a la longitud de la lista task
+
+        si existe, llama al metodo de la clase Task através de self.tasks , mark_completed 
+        luego a al metodo de la clase TaskManager save_task
+        ------------------------"""   
 
     def delete_task(self,index):
         if 0 <= index <= len(self.tasks):
@@ -60,7 +95,7 @@ class TaskManager:
             print("Lista de tareas: ")
             for i, task in enumerate(self.tasks, 1):
                 status = "Completada" if task.completed else "Pendiente"
-                print(f"{i}. [{status}] {task.title} - {task.description}")
+                print(f"{i}. [{status}] \n   {task.title} - {task.description}")
 
         else:
             print("No hay tareas.")
@@ -73,7 +108,17 @@ class TaskManager:
             print("La tarea no existe.")
         
 """ ------------------------
-funcion principal
+Funcion principal main()
+
+Se define la funcion principal  que de primeras llama a la clase TaskManager que comprobará 
+si existe o no archivo json de tareas
+
+si existe y es true, imprime las opciones en la consola y espera la entrada de un numero entero
+
+si no es un un numero entero, entra en la excepcion, y muestra al usuario que debe ingresar un numero
+si el usuario ingresa un numero que no está conteplado, imprime "Opcion no válida"
+
+Cada opcion llama a un metodo de TaskManager y dicha clase se invocó al iniciar la función main
 ------------------------"""
 
 def main():
@@ -114,3 +159,15 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+El orden de ejecucion es el siguiente
+
+se ejecuta main()
+
+main invoca la clase TaskManager()
+
+desde TaskManager se carga o se crea el archivo .json
+
+cuando se crea, borra o meodifica una tarea 
+"""
