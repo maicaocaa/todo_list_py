@@ -110,6 +110,7 @@ class TaskManager:
         if 0 <= index <= len(self.tasks):
             self.tasks[index-1].mark_completed()
             self.save_tasks()
+            print(f"Tarea: {index} -> completada con exito.")
         else:
             print("La tarea no existe.")
              
@@ -155,7 +156,7 @@ def main():
             continue
 
         if option == 1:
-            title = input("Introduce el título de la tarea: ")
+            title = input("Introduce el título de la tarea que deseas AÑADIR: ")
             description = input("Indica la descripción: ")
             task_manager.add_task(title, description)
             input("Presiona Enter para continuar...") 
@@ -171,10 +172,13 @@ def main():
             task_manager.show_tasks()
             input("Presiona Enter para continuar...") 
         elif option == 4:
+                print("Estas son todas tus tareas: ")
+                task_manager.show_tasks()
                 index = int(input("Ingresa el nº de la tarea que quieres COMPLETAR: "))
                 task_manager.mark_task_as_completed(index)
+                input("Presiona Enter para continuar...") 
         elif option == 5:
-                print("Has salido de la aplicación")
+                print("Has salido de la aplicación. HASTA LUEGO ;)")
                 break
         else:
                 print("Opción no válida. Intentalo de nuevo.")
