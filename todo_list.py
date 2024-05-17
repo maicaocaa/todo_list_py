@@ -203,7 +203,7 @@ Creado por María Cao como tarea final
 curso IBM SkillsBuild 
 Curso Python
 Full Stack
-Febrero-Abril 2024
+Abril-Mayo 2024
 
 Nota: no se ha modulado y tiene comentario ya que es 
 una tarea sencilla con dos clases y exigue explicaciones al código como tarea 

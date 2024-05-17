@@ -60,41 +60,6 @@
         "completed": false
     },
     {
-        "title": "TAREA",
-        "description": "guradada",
-        "completed": false
-    },
-    {
-        "title": "TAREA",
-        "description": "nueva",
-        "completed": false
-    },
-    {
-        "title": "NUEVA",
-        "description": "tarea",
-        "completed": false
-    },
-    {
-        "title": "NUEVA",
-        "description": "tarea",
-        "completed": false
-    },
-    {
-        "title": "NUEVA TAREA",
-        "description": "nueva",
-        "completed": true
-    },
-    {
-        "title": "NUEVA TAREA",
-        "description": "nueva tarea",
-        "completed": true
-    },
-    {
-        "title": "NUEVA TAREA",
-        "description": "fssdf",
-        "completed": true
-    },
-    {
         "title": "CREAR TODO LIST",
         "description": "Finalizar tareal final para clase de Python",
         "completed": true
